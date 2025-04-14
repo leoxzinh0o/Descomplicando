@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/logo-site-2.png" type="image/x-icon">
+    <title>Descomplicando</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+ <!-- Cabeçalho do site -->
+<header class="bg-dark text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="/img/logo-site-2.png" alt="Logo do Site" class="logo-site me-3">
+        <div>
+          <div class="nome-site">Descomplicando</div>
+          <div class="subtitulo-site">Compre, venda e negocie com segurança</div>
+        </div>
+      </div> 
+      <nav>
+        <a href="index.html" class="text-white mx-2">Início</a>
+        <a href="cadastro.html" class="text-white mx-2">Cadastro</a>
+        <a href="login.html" id="login-link" class="text-white mx-2">Login</a>
+        <a href="anunciar.html" class="text-white mx-2">Anunciar</a>
+        <!-- Mostrar nome do usuário logado -->
+        <span id="user-name" class="text-white mx-2" style="display:none;"></span>
+        <!-- Link de Logout -->
+        <a href="#" id="logout-link" class="text-white mx-2" style="display:none;">Logout</a>
+      </nav>
+    </div>
+</header>
+
+<!-- Seção Banner -->
+<section class="banner text-center">
+    <div class="container">
+        <h2>Compre, Venda Itens e anuncie seus serviços de maneira segura</h2>
+        <p class="lead">Encontre ofertas incríveis e oportunidades de serviços!</p>
+        <a href="cadastro.html" class="btn btn-light btn-lg">Cadastre-se Agora</a>
+        <a href="anunciar.html" class="btn btn-light btn-lg">Anuncie aqui!</a>
+        <br><br>
+        <a href="pesquisa.html" class="btn btn-light btn-lg">Pesquise Por Anúncio</a>
+    </div>
+</section>
+
+<!-- Seção de Anúncios Ativos -->
+<section class="container py-5" id="anuncios-ativos">
+    <h3 class="text-center mb-4">Anúncios Ativos</h3>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="product-list">
+        <!-- Os anúncios ativos serão injetados aqui -->
+    </div>
+</section>
+
+<!-- Seção de Anúncios Descomplicados -->
+<section class="container py-5" id="anuncios-descomplicados">
+    <h3 class="text-center mb-4">Anúncios Descomplicados</h3>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="descomplicados-product-list">
+        <!-- Os anúncios descomplicados serão injetados aqui -->
+    </div>
+</section>
+
+<!-- Seção de Anúncios Expirados -->
+<section class="container py-5" id="anuncios-expirados">
+    <h3 class="text-center mb-4">Anúncios Expirados</h3>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="expired-product-list">
+        <!-- Os anúncios expirados serão injetados aqui -->
+    </div>
+</section>
+
+<!-- Rodapé -->
+<footer class="bg-dark text-white text-center py-4">
+    <p>&copy; 2025 Site de Vendas e negociações | Todos os direitos reservados</p>
+</footer>
+
+<!-- Script do Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  
+<!-- Script para verificar login e exibir o nome do usuário -->
+<script>
+    // Função para verificar o login do usuário
+    window.onload = () => {
+      const userNameElement = document.getElementById('user-name');
+      const loginLink = document.getElementById('login-link');
+      const logoutLink = document.getElementById('logout-link');
+
+      // Verifica se o usuário está logado
+      fetch('/api/checkLogin')
+        .then(response => response.json())
+        .then(data => {
+          if (data.user) {
+            // Se o usuário estiver logado, exibe seu nome e mostra o link de logout
+            userNameElement.textContent = `Bem-vindo, ${data.user.nome}!`;
+            userNameElement.style.display = 'inline';  // Exibe o nome do usuário
+            loginLink.style.display = 'none';  // Esconde o link de login
+            logoutLink.style.display = 'inline';  // Exibe o link de logout
+          } else {
+            // Se o usuário não estiver logado, esconde o nome e o link de logout
+            userNameElement.style.display = 'none';
+            loginLink.style.display = 'inline';
+            logoutLink.style.display = 'none';
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao verificar login:', error);
+        });
+
+      // Função para logout
+      logoutLink.addEventListener('click', async () => {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/login.html';  // Redireciona para a página de login
+      });
+    };
+</script>
+
+<!-- Script principal -->
+<script>
+    function carregarAnuncios() {
+        fetch('/api/anuncios')
+            .then(response => response.json())
+            .then(data => {
+                const containerAtivos = document.getElementById('product-list');
+                const containerExpirados = document.getElementById('expired-product-list');
+                const containerDescomplicados = document.getElementById('descomplicados-product-list');
+                
+                if (!containerAtivos || !containerExpirados) return;
+
+                containerAtivos.innerHTML = '';
+                containerExpirados.innerHTML = '';
+                containerDescomplicados.innerHTML = '';
+
+                // Anúncios Ativos
+                data.anunciosNaoExpirados.forEach(anuncio => {
+                    const imagemUrl = anuncio.imagem ? `${anuncio.imagem}` : '/img/no-image.jpg';
+                    const criadoEm = new Date(anuncio.criadoEm);
+                    const duracao = anuncio.duracao;
+
+                    let prazoMs = 0;
+                    switch (duracao) {
+                        case '24h': prazoMs = 24 * 60 * 60 * 1000; break;
+                        case '7d': prazoMs = 7 * 24 * 60 * 60 * 1000; break;
+                        case '15d': prazoMs = 15 * 24 * 60 * 60 * 1000; break;
+                        case '30d': prazoMs = 30 * 24 * 60 * 60 * 1000; break;
+                        default: prazoMs = 7 * 24 * 60 * 60 * 1000;
+                    }
+
+                    const expiraEm = new Date(criadoEm.getTime() + prazoMs);
+                    const expirado = Date.now() > expiraEm;
+
+                    const anuncioDiv = document.createElement('div');
+                    anuncioDiv.classList.add('col-md-4', 'mb-4');
+                    anuncioDiv.innerHTML = `
+                        <a href="anuncio.html?id=${anuncio.id}" class="text-decoration-none text-dark">
+                            <div class="card product-card card-anuncio ${expirado ? 'expirado' : ''}">
+                                <img src="${imagemUrl}" class="card-img-top" alt="${anuncio.nome}">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">${anuncio.nome}</h5>
+                                    <p class="card-text text-truncate">${anuncio.descricao}</p>
+                                    <p class="card-text"><strong>Categoria:</strong> ${anuncio.categoria}</p>
+                                    <p class="card-text"><strong>Quantidade:</strong> ${anuncio.quantidade}</p>
+                                    <p class="card-text"><strong>Localização:</strong> ${anuncio.localizacao}</p>
+                                    <p class="card-text text-danger"><strong>Expira em:</strong>
+                                        <span class="contador-tempo" data-criado="${anuncio.criadoEm}" data-duracao="${anuncio.duracao}"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+                    containerAtivos.appendChild(anuncioDiv);
+                });
+
+                // Anúncios Expirados
+                data.anunciosExpirados.forEach(anuncio => {
+                    const imagemUrl = anuncio.imagem ? `${anuncio.imagem}` : '/img/no-image.jpg';
+                    const anuncioDivExpirado = document.createElement('div');
+                    anuncioDivExpirado.classList.add('col-md-4', 'mb-4');
+                    anuncioDivExpirado.innerHTML = `
+                        <div class="card product-card card-anuncio expirado">
+                            <img src="${imagemUrl}" class="card-img-top" alt="${anuncio.nome}">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">${anuncio.nome}</h5>
+                                <p class="card-text text-truncate">${anuncio.descricao}</p>
+                                <p class="card-text"><strong>Categoria:</strong> ${anuncio.categoria}</p>
+                                <p class="card-text"><strong>Quantidade:</strong> ${anuncio.quantidade}</p>
+                                <p class="card-text"><strong>Localização:</strong> ${anuncio.localizacao}</p>
+                                <p class="card-text text-muted">Este anúncio expirou.</p>
+                            </div>
+                        </div>
+                    `;
+                    containerExpirados.appendChild(anuncioDivExpirado);
+                });
+
+                // Anúncios Descomplicados
+if (data.anunciosDescomplicados && Array.isArray(data.anunciosDescomplicados)) {
+    data.anunciosDescomplicados.forEach(anuncio => {
+        const imagemUrl = anuncio.imagem ? `${anuncio.imagem}` : '/img/no-image.jpg';
+        const anuncioDivDescomplicado = document.createElement('div');
+        anuncioDivDescomplicado.classList.add('col-md-4', 'mb-4');
+        anuncioDivDescomplicado.innerHTML = `
+            <div class="card product-card card-anuncio descomplicado">
+                <img src="${imagemUrl}" class="card-img-top" alt="${anuncio.nome}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">${anuncio.nome}</h5>
+                    <p class="card-text text-truncate">${anuncio.descricao}</p>
+                    <p class="card-text"><strong>Categoria:</strong> ${anuncio.categoria}</p>
+                    <p class="card-text"><strong>Quantidade:</strong> ${anuncio.quantidade}</p>
+                    <p class="card-text"><strong>Localização:</strong> ${anuncio.localizacao}</p>
+                    <p><strong>Status:</strong> Este anúncio foi descomplicado e negociado!</p>
+                </div>
+            </div>
+        `;
+        containerDescomplicados.appendChild(anuncioDivDescomplicado);
+    });
+
+            }
+
+            // Inicia o contador de tempo
+            iniciarContadores();
+        })
+        .catch(error => console.error('Erro ao carregar os anúncios:', error));
+    }
+
+    function iniciarContadores() {
+        const elementos = document.querySelectorAll('.contador-tempo');
+
+        elementos.forEach(el => {
+            const criadoEm = new Date(el.dataset.criado);
+            const duracao = el.dataset.duracao;
+
+            let prazoMs = 0;
+            switch (duracao) {
+                case '24h': prazoMs = 24 * 60 * 60 * 1000; break;
+                case '7d': prazoMs = 7 * 24 * 60 * 60 * 1000; break;
+                case '15d': prazoMs = 15 * 24 * 60 * 60 * 1000; break;
+                case '30d': prazoMs = 30 * 24 * 60 * 60 * 1000; break;
+                default: prazoMs = 7 * 24 * 60 * 60 * 1000;
+            }
+
+            const expiraEm = new Date(criadoEm.getTime() + prazoMs);
+
+            function atualizar() {
+                const agora = new Date();
+                const restante = expiraEm - agora;
+
+                if (restante <= 0) {
+                    el.textContent = 'Expirado';
+                    el.classList.add('text-muted');
+                    const card = el.closest('.card');
+                    if (card) card.classList.add('expirado');
+                    return;
+                }
+
+                const dias = Math.floor(restante / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((restante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((restante % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((restante % (1000 * 60)) / 1000);
+
+                el.textContent = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+            }
+
+            atualizar();
+            setInterval(atualizar, 1000);
+        });
+    }
+
+    window.onload = () => {
+        carregarAnuncios();
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/logo-site-2.png" type="image/x-icon">
+    <title>Login - Site de Vendas e Negociações</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+ <!-- Cabeçalho do site -->
+<header class="bg-dark text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center">
+        <img src="/img/logo-site-2.png" alt="Logo do Site" class="logo-site me-3">
+        <div>
+          <div class="nome-site">Descomplicando</div>
+          <div class="subtitulo-site">Compre, venda e negocie com segurança</div>
+        </div>
+      </div> 
+      <nav>
+        <a href="index.html" class="text-white mx-2">Início</a>
+        <a href="cadastro.html" class="text-white mx-2">Cadastro</a>
+        <a href="login.html" id="login-link" class="text-white mx-2">Login</a>
+        <a href="anunciar.html" class="text-white mx-2">Anunciar</a>
+        <!-- Mostrar nome do usuário logado -->
+        <span id="user-name" class="text-white mx-2" style="display:none;"></span>
+        <!-- Link de Logout -->
+        <a href="#" id="logout-link" class="text-white mx-2" style="display:none;">Logout</a>
+      </nav>
+    </div>
+</header>
+
+<!-- Seção de Login -->
+<section class="container py-5">
+    <h3 class="text-center mb-4">Faça Login para Continuar</h3>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form id="formLogin">
+                <div class="mb-3">
+                    <label for="email-login" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email-login" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password-login" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="password-login" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Rodapé -->
+<footer class="bg-dark text-white text-center py-4">
+  <p>&copy; 2025 Site de Vendas e negociações | Todos os direitos reservados</p>
+</footer>
+
+<!-- Script do Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script para verificar login e exibir o nome do usuário -->
+  <script>
+    // Função para verificar o login do usuário
+    window.onload = () => {
+      const userNameElement = document.getElementById('user-name');
+      const loginLink = document.getElementById('login-link');
+      const logoutLink = document.getElementById('logout-link');
+
+      // Verifica se o usuário está logado
+      fetch('/api/checkLogin')
+        .then(response => response.json())
+        .then(data => {
+          if (data.user) {
+            // Se o usuário estiver logado, exibe seu nome e mostra o link de logout
+            userNameElement.textContent = `Bem-vindo, ${data.user.nome}!`;
+            userNameElement.style.display = 'inline';  // Exibe o nome do usuário
+            loginLink.style.display = 'none';  // Esconde o link de login
+            logoutLink.style.display = 'inline';  // Exibe o link de logout
+          } else {
+            // Se o usuário não estiver logado, esconde o nome e o link de logout
+            userNameElement.style.display = 'none';
+            loginLink.style.display = 'inline';
+            logoutLink.style.display = 'none';
+          }
+        })
+        .catch(error => {
+          console.error('Erro ao verificar login:', error);
+        });
+
+      // Função para logout
+      logoutLink.addEventListener('click', async () => {
+        await fetch('/api/logout', { method: 'POST' });
+        window.location.href = '/login.html';  // Redireciona para a página de login
+      });
+    };
+  </script>
+
+<script>
+// Verificar se o nome do usuário está armazenado no localStorage e exibir saudação
+window.addEventListener('DOMContentLoaded', () => {
+    const userName = localStorage.getItem('userName');  // Recupera o nome do usuário armazenado
+    const userGreeting = document.getElementById('user-greeting');
+
+    if (userName) {
+        userGreeting.textContent = `Olá, ${userName}!`;  // Exibe a saudação com o nome
+    } else {
+        userGreeting.textContent = '';  // Caso o nome não exista, não exibe nada
+    }
+});
+</script>
+<!-- Script JavaScript -->
+<script src="login.js"></script>
+
+</body>
+</html>
+

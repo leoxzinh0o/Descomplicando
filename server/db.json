@@ -1,0 +1,191 @@
+{
+  "clientes": [
+    {
+      "nome": "Marcos Felipe",
+      "email": "marcos_felipe@outlook.com",
+      "senha": "UsuarioTeste123!"
+    },
+    {
+      "nome": "Maria Fernanda",
+      "email": "maria_fernanda@outlook.com",
+      "senha": "UsuarioTeste123!"
+    },
+    {
+      "nome": "DeBoa.Ltda",
+      "email": "DeBoa_Ltda@outlook.com",
+      "senha": "Empresaltda123!"
+    },
+    {
+      "nome": "VaiComAsOutras.Ltda",
+      "email": "VaiComAsOutras_Ltda@outlook.com",
+      "senha": "Empresaltda123!"
+    },
+    {
+      "nome": "MelhorUso.Ltda",
+      "email": "MelhorUso_Ltda@outlook.com",
+      "senha": "Empresaltda123!"
+    },
+    {
+      "nome": "Eletricista.Ltda",
+      "email": "Eletricista_Ltda@outlook.com",
+      "senha": "Empresaltda123!"
+    },
+    {
+      "nome": "Eduardo Ferreira",
+      "email": "eduardo_ferreira@outlook.com",
+      "senha": "UsuarioTeste123!"
+    }
+  ],
+  "anuncios": [
+    {
+      "id": "1744585116856",
+      "nome": "Central Multimídia Original Jetta - Semi-Novo",
+      "descricao": "Central Multimídia Original Jetta - Semi-Novo em ótimas condições!\r\n\r\nEnvie sua oferta para podermos negociar!",
+      "categoria": "Peças Automotivas",
+      "quantidade": "1",
+      "localizacao": "Avenida Paulista, 456, Bairro Centro - Campinas - SP",
+      "imagem": "/uploads/1744585116853.webp",
+      "duracao": "30d",
+      "criadoEm": "2025-04-13T22:58:36.856Z",
+      "expiraEm": "2025-04-14T22:58:36.856Z",
+      "usuarioId": "maria_fernanda@outlook.com",
+      "mensagens": []
+    },
+    {
+      "id": "1744667605277",
+      "nome": "Casinha de Cachorro - Usada",
+      "descricao": "Casinha de cachorro porte pequeno-médio usada!\r\n\r\nCaso tenha interesse mande sua oferta via chat!",
+      "categoria": "Pet",
+      "quantidade": "1",
+      "localizacao": "Rua Monte Alegre, 789, Bairro Vila Nova Jundiaí - Jundiaí - SP",
+      "imagem": "/uploads/1744667605274.webp",
+      "duracao": "24h",
+      "criadoEm": "2025-04-13T21:53:25.277Z",
+      "expiraEm": "2025-04-14T21:53:25.277Z",
+      "usuarioId": "eduardo_ferreira@outlook.com",
+      "mensagens": []
+    }
+  ],
+  "anunciosDescomplicados": [
+    {
+      "id": "1744587878526",
+      "nome": "Eletricista",
+      "descricao": "Preciso de um eletricista para concertar a fiação de meu apartamento.\r\n\r\nMande seu contato pessoal ou de sua empresa",
+      "categoria": "Serviços ou Mão de obra",
+      "quantidade": "1",
+      "localizacao": "Rua das Flores, 123​Bairro Jardim das Palmeiras​ - Jundiaí - SP",
+      "imagem": "/uploads/1744587878522.png",
+      "duracao": "24h",
+      "criadoEm": "2025-04-13T23:44:38.526Z",
+      "expiraEm": "2025-04-14T23:44:38.526Z",
+      "usuarioId": "marcos_felipe@outlook.com",
+      "mensagens": [
+        {
+          "id": "1744588133016",
+          "autor": "Eletricista_Ltda@outlook.com",
+          "texto": "Olá Marcos! Falo da empresa Eletricista.Ltda, entre em contato conosco para uma avaliação! TEL: (11) 9864-7543",
+          "data": "2025-04-13T23:48:53.016Z",
+          "respostas": [
+            {
+              "id": "1744588170967",
+              "autor": "marcos_felipe@outlook.com",
+              "texto": "Realizado o contato e visita agendada! Obrigado!",
+              "data": "2025-04-13T23:49:30.967Z"
+            }
+          ]
+        }
+      ],
+      "encerrado": true
+    },
+    {
+      "id": "1744583885658",
+      "nome": "Telha de Cerâmica Romana",
+      "descricao": "Telhas de Cerâmica Romana semi novas!\r\nAproximadamente 100m de material\r\n\r\nCaso tenha interesse, comente neste anuncio para negociarmos!",
+      "categoria": "Materiais de Construção",
+      "quantidade": "100",
+      "localizacao": "Rua das Flores, 123, ​Bairro Jardim das Palmeiras - Jundiaí - SP",
+      "imagem": "/uploads/1744583885655.webp",
+      "duracao": "15d",
+      "criadoEm": "2025-04-13T22:38:05.658Z",
+      "expiraEm": "2025-04-28T22:38:05.658Z",
+      "usuarioId": "marcos_felipe@outlook.com",
+      "mensagens": [
+        {
+          "id": "1744584116971",
+          "autor": "maria_fernanda@outlook.com",
+          "texto": "Olá Marcos! Estaria interessado em seu anúncio, estou precisando reformar o telhado de minha casa e seria de meu interesse a aquisição destas telhas, poderiamos fechar estas telhas no valor de 200 reais?",
+          "data": "2025-04-13T22:41:56.971Z",
+          "respostas": [
+            {
+              "id": "1744668458128",
+              "autor": "marcos_felipe@outlook.com",
+              "texto": "Olá Maria, neste caso você poderia retirar as telhas no endereço do anuncio? Pois a retirada e o transporte seria por sua conta.",
+              "data": "2025-04-14T22:07:38.128Z"
+            },
+            {
+              "id": "1744668585236",
+              "autor": "maria_fernanda@outlook.com",
+              "texto": "Sim Marcos, consigo retirar neste endereço que informou e posso arcar com os custos de transporte!",
+              "data": "2025-04-14T22:09:45.236Z"
+            },
+            {
+              "id": "1744668655134",
+              "autor": "marcos_felipe@outlook.com",
+              "texto": "Perfeito, por mim negócio fechado! Aguardo sua confirmação para podermos concluirmos nossa negociação!",
+              "data": "2025-04-14T22:10:55.134Z"
+            },
+            {
+              "id": "1744668768653",
+              "autor": "maria_fernanda@outlook.com",
+              "texto": "Negócio fechado! Segue meu número para nós comunicarmos e marcarmos o dia e hora da retirada das telhas! Tel: (11) 94376-5288",
+              "data": "2025-04-14T22:12:48.653Z"
+            }
+          ]
+        },
+        {
+          "id": "1744584385976",
+          "autor": "DeBoa_Ltda@outlook.com",
+          "texto": "Olá Marcos! Falo à respeito da empresa DeBoa.ltda e estamos interessados em seu anúncio, poderiamos te ajudar com este problema, podemos retirar as telhas de sua casa no valor de 200 reais, oque acha?",
+          "data": "2025-04-13T22:46:25.976Z",
+          "respostas": [
+            {
+              "id": "1744668830707",
+              "autor": "marcos_felipe@outlook.com",
+              "texto": "Agradeço sua oferta mas já negociei estas telhas com outro usuário!",
+              "data": "2025-04-14T22:13:50.707Z"
+            }
+          ]
+        },
+        {
+          "id": "1744584662048",
+          "autor": "VaiComAsOutras_Ltda@outlook.com",
+          "texto": "Olá Marcos! Falo à respeito da empresa VaiComAsOutras.ltda e estamos interessados em seu anúncio, poderiamos te ajudar com este problema, podemos retirar as telhas de sua casa no valor de 200 reais, oque acha?",
+          "data": "2025-04-13T22:51:02.048Z",
+          "respostas": [
+            {
+              "id": "1744668828697",
+              "autor": "marcos_felipe@outlook.com",
+              "texto": "Agradeço sua oferta mas já negociei estas telhas com outro usuário!",
+              "data": "2025-04-14T22:13:48.697Z"
+            }
+          ]
+        },
+        {
+          "id": "1744584882983",
+          "autor": "MelhorUso_Ltda@outlook.com",
+          "texto": "Olá Marcos! Falo à respeito da empresa MelhorUso.ltda, somos uma empresa voltada em ajudar as familias mais carentes à conquistarem suas casas, e estamos interessados em seu anúncio! Podemos retirar as telhas de sua casa sem custo algum! oque acha desta oferta?",
+          "data": "2025-04-13T22:54:42.983Z",
+          "respostas": [
+            {
+              "id": "1744668825935",
+              "autor": "marcos_felipe@outlook.com",
+              "texto": "Agradeço sua oferta mas já negociei estas telhas com outro usuário!",
+              "data": "2025-04-14T22:13:45.935Z"
+            }
+          ]
+        }  
+      ],
+      "encerrado": true
+    }
+  ]
+}

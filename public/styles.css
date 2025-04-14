@@ -1,0 +1,437 @@
+/* ---------------------------
+   Estilo Geral do Body
+----------------------------- */
+body {
+  background-color: #f4f4f4;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------------------------
+   Cabeçalho
+----------------------------- */
+header {
+  background-color: #343a40;
+  color: white;
+  padding: 10px 0;
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------
+   Logo e Nome do Site
+----------------------------- */
+.logo-site {
+  height: 100px;
+  width: auto;
+}
+
+.nome-site {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.subtitulo-site {
+  font-size: 1rem;
+  color: #ff6f00;
+  margin-top: 2px;
+}
+
+/* ---------------------------
+   Seção Banner
+----------------------------- */
+.banner {
+  background-color: #007bff;
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.banner h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.banner .lead {
+  font-size: 1.2rem;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.banner .btn {
+  background-color: white;
+  color: #007bff;
+  border: none;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.banner .btn:hover {
+  background-color: #e6e6e6;
+}
+
+/* ---------------------------
+   Cards de Produtos / Anúncios
+----------------------------- */
+.card.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.card.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card.product-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.card.product-card .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card.product-card .card-title {
+  font-size: 1.1rem;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+}
+
+.card.product-card .card-text {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.25rem;
+}
+
+/* ---------------------------
+   Página de Anúncio
+----------------------------- */
+
+#detalhes-anuncio img {
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 25px;
+}
+
+#detalhes-anuncio {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+#detalhes-anuncio h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+#detalhes-anuncio p {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+#detalhes-anuncio strong {
+  color: #555;
+}
+
+#mensagens-section {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+#mensagens-section h2 {
+  color: #007bff;
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+#mensagens-container .border {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+#mensagens-container .border strong {
+  color: #343a40;
+}
+
+#mensagem-texto {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  padding: 15px;
+}
+
+#mensagem-form button {
+  background-color: #007bff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#mensagem-form button:hover {
+  background-color: #0056b3;
+}
+
+/* ---------------------------
+   Comentarios do Anúncio
+----------------------------- */
+
+.chat-box {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.mensagem {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #f1f1f1;
+}
+
+.mensagem.usuario {
+  background-color: #d1ecf1;
+  text-align: right;
+}
+
+.mensagem.anunciante {
+  background-color: #ffeeba;
+  font-weight: bold;
+}
+
+/* ---------------------------
+   Botão de Voltar
+----------------------------- */
+.btn-voltar {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+  background-color: #0056b3;
+  text-decoration: none;
+}
+
+/* ---------------------------
+   Botão dos comentários
+----------------------------- */
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.375rem;
+}
+
+.reply-btn {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  border-radius: 1rem;
+}
+
+/* ---------------------------
+   Estilo para Anúncio Expirado
+----------------------------- */
+.card.product-card.expirado {
+  position: relative;
+}
+
+.card.product-card.expirado img {
+  filter: grayscale(100%);
+  pointer-events: none; /* Evita clique em imagem desativada */
+}
+
+/* Texto "Expirado" visível no hover */
+.card.product-card.expirado::after {
+  content: "Expirado";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card.product-card.expirado:hover::after {
+  opacity: 1;
+}
+
+/* ---------------------------
+   Estilo para Anúncio Descomplicado
+----------------------------- */
+.card.product-card.descomplicado {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card.product-card.descomplicado img {
+  transition: filter 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+/* Texto "Descomplicado" visível no hover */
+.card.product-card.descomplicado::after {
+  content: "Descomplicado";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 128, 0, 0.8); /* Cor de fundo verde com opacidade */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Transições suaves */
+  pointer-events: none;
+}
+
+/* Exibe o texto "Descomplicado" no hover */
+.card.product-card.descomplicado:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1); /* Efeito de zoom no texto */
+}
+
+/* Estilo para desabilitar interações (não permitir clicar ou comentar) */
+.card.product-card.descomplicado.view-only {
+  pointer-events: none; /* Desabilita qualquer interação com o card */
+  opacity: 0.7; /* Torna o card um pouco transparente para indicar que não é interativo */
+}
+
+.card.product-card.descomplicado.view-only button,
+.card.product-card.descomplicado.view-only input,
+.card.product-card.descomplicado.view-only textarea {
+  pointer-events: none; /* Desabilita interações com campos de formulário */
+  opacity: 0.5; /* Torna os campos visivelmente desabilitados */
+}
+
+
+/* ---------------------------
+   Botão Personalizado
+----------------------------- */
+.btn-cadastre-se {
+  background-color: orange;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-blue {
+  background-color: #007bff; /* Azul padrão do Bootstrap */
+  color: white;
+}
+.btn-blue:hover {
+  background-color: #0056b3; /* Azul escuro ao passar o mouse */
+}
+
+/* ---------------------------
+   Formulários e Containers
+----------------------------- */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* ---------------------------
+   Rodapé
+----------------------------- */
+footer {
+  background-color: #343a40;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
