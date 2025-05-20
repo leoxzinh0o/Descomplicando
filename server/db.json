@@ -34,6 +34,11 @@
       "nome": "Eduardo Ferreira",
       "email": "eduardo_ferreira@outlook.com",
       "senha": "UsuarioTeste123!"
+    },
+    {
+      "nome": "Léo Henrique",
+      "email": "leoleo@hotmail.com",
+      "senha": "Leomari30092022!"
     }
   ],
   "anuncios": [
@@ -63,6 +68,20 @@
       "criadoEm": "2025-04-13T21:53:25.277Z",
       "expiraEm": "2025-04-14T21:53:25.277Z",
       "usuarioId": "eduardo_ferreira@outlook.com",
+      "mensagens": []
+    },
+    {
+      "id": "1747784675925",
+      "nome": "teste",
+      "descricao": "tes",
+      "categoria": "Pet",
+      "quantidade": "2",
+      "localizacao": "teste",
+      "imagem": "/uploads/1747784675924.webp",
+      "duracao": "24h",
+      "criadoEm": "2025-05-20T23:44:35.925Z",
+      "expiraEm": "2025-05-21T23:44:35.925Z",
+      "usuarioId": "leoleo@hotmail.com",
       "mensagens": []
     }
   ],
@@ -183,7 +202,50 @@
               "data": "2025-04-14T22:13:45.935Z"
             }
           ]
-        }  
+        }
+      ],
+      "encerrado": true
+    },
+    {
+      "id": "1747784242242",
+      "nome": "Computador",
+      "descricao": "Computador",
+      "categoria": "Eletrônicos",
+      "quantidade": "1",
+      "localizacao": "rua exemplo",
+      "imagem": "/uploads/1747784242240.webp",
+      "duracao": "30d",
+      "criadoEm": "2025-05-20T23:37:22.242Z",
+      "expiraEm": "2025-06-19T23:37:22.242Z",
+      "usuarioId": "leoleo@hotmail.com",
+      "mensagens": [
+        {
+          "id": "1747784292794",
+          "autor": "leoleo@hotmail.com",
+          "texto": "ola comentem caso tenham interesse!",
+          "data": "2025-05-20T23:38:12.794Z",
+          "respostas": [
+            {
+              "id": "1747784470644",
+              "autor": "marcos_felipe@outlook.com",
+              "texto": "Eu tenho interesso e pagaria 2.000 nesta maquina",
+              "data": "2025-05-20T23:41:10.644Z"
+            },
+            {
+              "id": "1747784515285",
+              "autor": "leoleo@hotmail.com",
+              "texto": "Negocio fechado",
+              "data": "2025-05-20T23:41:55.285Z"
+            }
+          ]
+        },
+        {
+          "id": "1747784467035",
+          "autor": "marcos_felipe@outlook.com",
+          "texto": "Eu tenho interesso e pagaria 2.000 nesta maquina",
+          "data": "2025-05-20T23:41:07.035Z",
+          "respostas": []
+        }
       ],
       "encerrado": true
     }
